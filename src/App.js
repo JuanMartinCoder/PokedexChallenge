@@ -1,6 +1,7 @@
 import React ,{ useEffect, useState } from "react";
 import axios from "axios";
 
+import './App.css';
 
 //Components Imports
 import PaginationWrapper from "./components/pagination/PaginationWrapper";
@@ -86,7 +87,7 @@ function App() {
         null 
         
         :
-        <div>
+        <div className="centeredWrapper">
           <PaginationWrapper 
         data={data.results}
         cantidadPokemons={data.count} 
@@ -97,15 +98,15 @@ function App() {
 
         {
           previousLink == null ? <button disabled={true} onClick={goPreviousPage}>
-                                    goPreviousPage
+                                   
                                  </button>
           : 
                                 <button  onClick={goPreviousPage}>
-                                goPreviousPage
+                                  
                               </button>
         }
         <button onClick={goNextPage}>
-                goNextPage
+               
         </button>
         </div>
       }

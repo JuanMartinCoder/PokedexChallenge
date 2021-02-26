@@ -1,5 +1,12 @@
 .pagwrapper{
     padding: 1rem;
     background: #F2EDED;
-    border-radius: 1em;
+    border-radius: 2em;
+    width: 300px;
+}
+
+.pokemonTitle{
+    font-size: 30px;
+    color: #FBAF75;
+    margin-left: 1rem;
 }

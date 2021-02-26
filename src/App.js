@@ -2,6 +2,7 @@ import React ,{ useEffect, useState } from "react";
 import axios from "axios";
 
 import './App.css';
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
 //Components Imports
 import PaginationWrapper from "./components/pagination/PaginationWrapper";
@@ -16,7 +17,7 @@ function App() {
   const [nextLink, setNextsLink] = useState('');
   const [previousLink, setPreviousLink] = useState('');
   const [isloading, setLoading] = useState(true);
-  
+  const [pokemonData , setPokemonData] = useState();  
   
   useEffect(()=>{
     //There are 1118 pokemons, so the pagination will need n pages
@@ -75,11 +76,30 @@ function App() {
   }
 
 
+  function searchPokemon (url){
+        
+    axios.get(url)
+    .then(function (response) {
+        console.log(response);
+        setPokemonData(response.data);
+   
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+    .then(function () {
+      
+    });
+}
+
+
 
 
   return (
     <div className="App">
-
+      <div className="tituloWrapper">
+        <h1 className="tituloPrincipal">Pokedex Challenge</h1>
+      </div>
       {
         isloading 
         ?  
@@ -88,29 +108,38 @@ function App() {
         
         :
         <div className="centeredWrapper">
-          <PaginationWrapper 
-        data={data.results}
-        cantidadPokemons={data.count} 
-        isloading={isloading} 
-        pagelimit={pagelimit} 
-        
-        />
-
-        {
-          previousLink == null ? <button disabled={true} onClick={goPreviousPage}>
-                                   
-                                 </button>
-          : 
-                                <button  onClick={goPreviousPage}>
-                                  
-                              </button>
-        }
-        <button onClick={goNextPage}>
-               
-        </button>
+          <div className="pokemonList">
+                <PaginationWrapper 
+              data={data.results}
+              cantidadPokemons={data.count} 
+              isloading={isloading} 
+              pagelimit={pagelimit} 
+              setPokemonData={setPokemonData}
+              searchPokemon={searchPokemon}
+              />
+            <div className="buttonWrapper">
+              {
+                previousLink == null ? <button disabled={true} onClick={goPreviousPage} className="buttonclasss">
+                                        <IoIosArrowBack className="buttons"/>
+                                      </button>
+                : 
+                                      <button  onClick={goPreviousPage} className="buttonclasss">
+                                      <IoIosArrowBack className="buttons"/>
+                                    </button>
+              }
+              <button onClick={goNextPage} className="buttonclasss">
+              <IoIosArrowForward className="buttons"/>
+              </button>
+              </div>
+          </div>
+          <div className="pokemonAbilities">
+          
+          </div>
         </div>
-      }
-      
+        }
+      <div className="footer">
+
+      </div>
     </div>
   );
 }

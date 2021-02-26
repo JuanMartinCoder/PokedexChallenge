@@ -2,12 +2,66 @@
     background: #EBEEE6;    
     height: 100vh;
     display: flex;
-    align-content: center;
-    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer{
+    width: 100%;
 }
 
 .centeredWrapper{
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-evenly;
+ width: 100%;
+ align-content: first baseline;
+}
+
+.tituloPrincipal{
+    color: #707070;
+    
+    text-align: end;
+    padding-right: 70px;
+    letter-spacing: .8rem;
+    
+
+}
+.tituloWrapper{
+    width: 100%;
+    padding: 10px;
+}
+
+.pokemonList{
     align-self: center;
     box-shadow: 3px 3px 2px rgba(0, 0, 0, .2);
     border-radius: 10px;
+}
+
+.pokemonAbilities{
+    width: 300px;
+    background: #F1A8A8;
+    align-self: center;
+    height: 400px;
+    box-shadow: 3px 3px 2px rgba(0, 0, 0, .2);
+    border-radius: 10px;
+}
+
+.buttonWrapper{
+    background: #F2EDED;
+    display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+border-radius: 10px;
+}
+
+.buttonclasss{
+    border: none;
+    background: #F2EDED;
+
+    color: #456788;
+    
+}
+
+.buttons{
+    font-size: 25px;
 }

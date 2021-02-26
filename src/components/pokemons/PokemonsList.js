@@ -1,15 +1,18 @@
-import React from 'react'
+import React ,{useState}from 'react'
+import axios from 'axios'
 
 import './pokemons.css'
 
-export default function PokemonsList({ data , isloading}) {
+export default function PokemonsList({ data ,isloading,searchPokemon}) {
+
+  
     return (
-        <div>
+        <div className="pokemonlist">
             {
                 isloading ? null: data.map((pokemon,id) => (
-                    <div key={id} className="pokemon">
+                    <a key={id} className="pokemon" href="#" onClick={()=>searchPokemon(pokemon.url)}>
                         {pokemon.name}
-                    </div>
+                    </a>
                 ))
             }
         </div>

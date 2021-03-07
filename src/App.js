@@ -2,10 +2,12 @@ import React ,{ useEffect, useState } from "react";
 import axios from "axios";
 
 import './App.css';
-import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward, IoIosArrowBack, IoIosHeart } from "react-icons/io";
 
 //Components Imports
 import PaginationWrapper from "./components/pagination/PaginationWrapper";
+import PokemonStat from "./components/pokemons/PokemonStat";
+
 
 function App() {
 
@@ -18,6 +20,7 @@ function App() {
   const [previousLink, setPreviousLink] = useState('');
   const [isloading, setLoading] = useState(true);
   const [pokemonData , setPokemonData] = useState();  
+  const [language, setLanguage] = useState('en');
   
   useEffect(()=>{
     //There are 1118 pokemons, so the pagination will need n pages
@@ -37,7 +40,7 @@ function App() {
     .then(function () {
       setLoading(false);
     });  
-
+// eslint-disable-next-line
   },[])
 
 
@@ -80,7 +83,7 @@ function App() {
         
     axios.get(url)
     .then(function (response) {
-        console.log(response);
+        
         setPokemonData(response.data);
    
     })
@@ -133,7 +136,32 @@ function App() {
               </div>
           </div>
           <div className="pokemonAbilities">
-          
+              {pokemonData===undefined ? 
+                null
+                :
+                <div className="pokemonData">
+                <h1 className="pokemonDataTitle">{pokemonData.name}</h1>
+                <img className="pokemonImg" src={pokemonData.sprites.front_default} alt={pokemonData.name} />
+                <div className="pokemonAbilitiesList">
+                <h2 className="pokemonAbilitiesListTitle">Abilities</h2>
+                <ul className="ulListAbilities">
+                  {pokemonData.abilities.map((ability, id)=>(
+                  <li className="liListAbilities" key={id}>{ability.ability.name}</li>
+                  ))}
+                </ul>
+                </div>
+                <div className="pokemonStatsList">
+                <h2 className="pokemonStatsListTitle">Stats</h2>
+                <ul className="ulListAbilities">
+                  {pokemonData.stats.map((stat, id)=>(
+                  <PokemonStat key={id}data={stat}/>
+                  ))}
+                </ul>
+                </div>
+                
+                  
+                </div>
+              }
           </div>
         </div>
         }

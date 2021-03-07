@@ -14,7 +14,7 @@
  flex-wrap: wrap;
  justify-content: space-evenly;
  width: 100%;
- align-content: first baseline;
+ align-content: center;
 }
 
 .tituloPrincipal{
@@ -38,12 +38,28 @@
 }
 
 .pokemonAbilities{
-    width: 300px;
+    
     background: #F1A8A8;
     align-self: center;
     height: 400px;
     box-shadow: 3px 3px 2px rgba(0, 0, 0, .2);
     border-radius: 10px;
+}
+.pokemonData{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px;
+}
+.pokemonDataTitle{
+    text-align: center;
+    width: 70%;
+    color: #EBEEE6;
+    text-transform: capitalize;
+    
+}
+
+.pokemonImg{
+
 }
 
 .buttonWrapper{
@@ -64,4 +80,34 @@ border-radius: 10px;
 
 .buttons{
     font-size: 25px;
+}
+
+
+.pokemonAbilitiesList{
+    width: 50%;
+   
+}
+
+.pokemonAbilitiesListTitle{
+    color: #EBEEE6;
+    margin: 0;
+}
+
+.ulListAbilities{
+    list-style: none;
+    padding: 0;
+    
+}
+
+.liListAbilities{
+    padding: 5px;
+}
+
+.pokemonStatsList{
+width: 50%;
+}
+
+.pokemonStatsListTitle{
+    color: #EBEEE6;
+    margin: 0;
 }

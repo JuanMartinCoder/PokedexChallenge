@@ -10,3 +10,32 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.liStat{
+    display: flex;
+}
+
+.heart, .special-attack{
+    color: rgb(247, 38, 38);
+    padding-right: 5px;
+    align-self: center;
+}
+.attack ,.speed{
+    padding-right: 5px;
+    align-self: center;
+}
+.deffense , .special-defense{
+    color: rgb(139, 235, 211);
+    padding-right: 5px;
+    align-self: center;
+}
+
+.name{
+    color: #EBEEE6;
+    margin: 0;
+    padding-right: 10px;    
+}
+.base_stat{
+    margin: 0;
+    color: #EBEEE6;
+}
